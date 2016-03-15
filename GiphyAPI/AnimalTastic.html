@@ -1,11 +1,14 @@
 <html>
 <head>
-	<title>Home Pets</title>
+	<title>Home Pets</title> 
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
 	<h1>Home Pets</h1>
 
-	<div id='animal buttons'> 
+	<div id='animalbuttons'> 
 		<button data-animal="guinea pig">guinea pig</button>
 		<button data-animal="dog">dog</button>
 		<button data-animal="cat">cat</button>
@@ -17,7 +20,7 @@
 		<button data-animal="turtle">turtle</button>
 		<button data-animal="hermit crab">hermit crab</button> 
 
-  <form id='search box'>
+  <form id='searchbox'>
   Search
   <input type="text" name="searchbox">
   <input type="button">
@@ -34,7 +37,7 @@
 	var array= ['guinea pig','dog','cat','gecko','rabbit','parrot','ferret','fish','turtle','hermit crab']
    $('button').on('click', function() {
         var animal = $(this).data('animal');
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=15";
 
         $.ajax({
                 url: queryURL,
