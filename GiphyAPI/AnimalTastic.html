@@ -1,7 +1,6 @@
 <html>
 <head>
 	<title>Home Pets</title> 
-    <script src="jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
@@ -22,8 +21,8 @@
 
   <form id='searchbox'>
   Search
-  <input type="text" name="searchbox">
-  <input type="button">
+  <input type="text" name="searchbox" id='add'>
+  <input type="submit" id='addsubmit' value='Submit'>
 		</form>
 
 	</div> 
@@ -34,8 +33,15 @@
 	</form> 
 	<script type="text/javascript">
 	//endpoint for homework is search 
-	var array= ['guinea pig','dog','cat','gecko','rabbit','parrot','ferret','fish','turtle','hermit crab']
-   $('button').on('click', function() {
+	var array= []
+
+
+    $('#addsubmit').on('click', function(){
+    var pets = $('#add').val().trim();
+    $('#animalbuttons').append('<button data-animal="'+pets+'">'+pets+'</button>')
+    return false;
+                    });
+    $(document).on('click','button', function() {
         var animal = $(this).data('animal');
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=15";
 
